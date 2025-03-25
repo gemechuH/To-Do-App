@@ -79,7 +79,8 @@ class UIManager {
 
   createTaskElement(task) {
     const taskElement = document.createElement("div");
-    taskElement.className = `task-item priority-${task.priority}`;
+    const isExpired = new Date(task.deadline) < new Date();
+    taskElement.className = `task-item priority-${task.priority}${isExpired ? " task-expired" : ""}`;
     taskElement.dataset.taskId = task.id;
     taskElement.draggable = true;
 
@@ -97,6 +98,13 @@ class UIManager {
     const title = document.createElement("h3");
     title.className = "task-title";
     title.textContent = task.title;
+
+    if (isExpired) {
+      const expirationMsg = document.createElement("div");
+      expirationMsg.className = "task-details";
+      expirationMsg.textContent = "⚠️ Task has expired!";
+      content.appendChild(expirationMsg);
+    }
     if (task.completed) {
       title.style.textDecoration = "line-through";
     }
@@ -123,6 +131,7 @@ class UIManager {
     editBtn.addEventListener("click", () => this.handleEditTask(task));
 
     const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
     deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
     deleteBtn.addEventListener("click", () => {
       if (confirm("Are you sure you want to delete this task?")) {

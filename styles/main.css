@@ -239,3 +239,31 @@ button:hover {
 .task-item {
   animation: fadeIn 0.3s ease-out;
 }
+
+.task-expired {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 2px solid var(--danger-color);
+}
+
+.task-expired .task-title {
+  color: var(--danger-color);
+}
+
+.task-expired .delete-btn {
+  color: #ff4444;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  /* color: white; */
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+.task-expired .task-details {
+  color: var(--danger-color);
+  font-weight: 500;
+}
+
