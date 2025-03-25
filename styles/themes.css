@@ -1,0 +1,56 @@
+:root {
+  /* Light theme (default) */
+  --primary-color: #4a90e2;
+  --secondary-color: #f5f5f5;
+  --text-color: #333;
+  --background-color: #fff;
+  --border-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --task-bg: #fff;
+  --input-bg: #fff;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --primary-color: #61a0e4;
+  --secondary-color: #2c2c2c;
+  --text-color: #e0e0e0;
+  --background-color: #1a1a1a;
+  --border-color: #404040;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --success-color: #2fb344;
+  --danger-color: #e94c4c;
+  --warning-color: #ffca2c;
+  --task-bg: #2c2c2c;
+  --input-bg: #2c2c2c;
+}
+
+/* Theme transition */
+body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] button {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .task-item {
+  background-color: var(--task-bg);
+}
+
+[data-theme="dark"] #theme-toggle {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .task-details {
+  color: #999;
+}
